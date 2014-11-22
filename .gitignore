@@ -1,2 +1,4 @@
 .DS_Store
 /tmp/*
+db/test.sqlite3
+log/test.log
