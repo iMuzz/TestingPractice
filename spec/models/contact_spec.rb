@@ -36,7 +36,10 @@ describe Contact do
   end
 
   it "returns a contact's full name as a string" do
-    
+    contact = Contact.new(
+      firstname: 'Faraaz',
+      lastname: 'Nishtar',
+      email: 'faraaznishtar@gmail.com')
+    expect(contact.name).to be_a(String)
   end
-
 end
