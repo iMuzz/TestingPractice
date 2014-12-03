@@ -42,4 +42,12 @@ describe Contact do
       email: 'faraaznishtar@gmail.com')
     expect(contact.name).to be_a(String)
   end
+
+  it "returns the contact's first and last name" do 
+    contact = Contact.new(firstname: 'Nathik', 
+      lastname: 'Salam', 
+      email: 'nathiksalam@gmail.com')
+    expect(contact.name).to eq('Nathik Salam')
+  end
+
 end
