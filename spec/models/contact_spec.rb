@@ -50,57 +50,42 @@ describe Contact do
     expect(contact.name).to eq('Nathik Salam')
   end
 
-  it "returns a sorted array of results that match" do 
-    smith = Contact.create(
-      firstname: 'John',
-      lastname: 'Smith',
-      email: 'jsmith@example.com'
-    )
-    jones = Contact.create(
-      firstname: 'Tim',
-      lastname: 'Jones',
-      email: 'tjones@example.com'
-    )
-    johnson = Contact.create(
-      firstname: 'John',
-      lastname: 'Johnson',
-      email: 'jjohnson@example.com')
-    expect(Contact.by_letter("J")).to eq [johnson, jones]
-  end
-
-  it "omits the results that do not match" do
-    smith = Contact.create(
-      firstname: 'John',
-      lastname: 'Smith',
-      email: 'jsmith@example.com'
-    )
-    jones = Contact.create(
-      firstname: 'Tim',
-      lastname: 'Jones',
-      email: 'tjones@example.com'
-    )
-    johnson = Contact.create(
-      firstname: 'John',
-      lastname: 'Johnson',
-      email: 'jjohnson@example.com'
-    )
-    expect(Contact.by_letter("J")).not_to include smith
-  end
-
-
 =begin
  There is not functional difference between the describe block and the context block.
  There is only a contextual difference between the two. 
  The purpose of “describe” is to wrap a set of tests against one functionality 
  while “context” is to wrap a set of tests against one functionality under the same state.
 =end
+
   describe "filter last name by letter" do #This describe block will test the functionality of being able to filter last name by letter
+    before :each do # this block of code will exectute before each test within this describe block
+      @smith = Contact.create(
+        firstname: 'John',
+        lastname: 'Smith',
+        email: 'jsmith@example.com'
+      )
+      @jones = Contact.create(
+        firstname: 'Tim',
+        lastname: 'Jones',
+        email: 'tjones@example.com'
+      )
+      @johnson = Contact.create(
+        firstname: 'John',
+        lastname: 'Johnson',
+        email: 'jjohnson@example.com'
+      )
+    end
+
     context "matching letters" do 
-    
+      it "returns a sorted array of results that match" do 
+        expect(Contact.by_letter("J")).to eq [@johnson, @jones]
+      end
     end
 
     context "non-matching letters" do
-
+      it "omits the results that do not match" do
+        expect(Contact.by_letter("J")).not_to include @smith
+      end
     end 
   end
 end
