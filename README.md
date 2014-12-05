@@ -1,7 +1,9 @@
 TestingPractice
 ===============
 
-Personal repo to understand and practice testing fundamentals.
+This is a personal repository that follows the book Everyday Rails Rspec by Aaron Sumner.
+
+There are notes written along the code so that I can better understand testing fundamentals.
 
 RSPEC Resources
 
