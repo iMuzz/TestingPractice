@@ -85,7 +85,22 @@ describe Contact do
       email: 'jjohnson@example.com'
     )
     expect(Contact.by_letter("J")).not_to include smith
-
   end
 
+
+=begin
+ There is not functional difference between the describe block and the context block.
+ There is only a contextual difference between the two. 
+ The purpose of “describe” is to wrap a set of tests against one functionality 
+ while “context” is to wrap a set of tests against one functionality under the same state.
+=end
+  describe "filter last name by letter" do #This describe block will test the functionality of being able to filter last name by letter
+    context "matching letters" do 
+    
+    end
+
+    context "non-matching letters" do
+
+    end 
+  end
 end
