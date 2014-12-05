@@ -49,6 +49,10 @@ describe Contact do
     expect(contact.name).to eq('Nathik Salam')
   end
 
+  it "has three phone numbers" do 
+    expect(create(:contact).phones.count).to eq(3)
+  end
+
 =begin
  There is not functional difference between the describe block and the context block.
  There is only a contextual difference between the two. 
