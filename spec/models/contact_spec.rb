@@ -62,17 +62,17 @@ describe Contact do
 
   describe "filter last name by letter" do #This describe block will test the functionality of being able to filter last name by letter
     before :each do # this block of code will exectute before each test within this describe block
-      @smith = Contact.create(
+      @smith = create(:contact, 
         firstname: 'John',
         lastname: 'Smith',
         email: 'jsmith@example.com'
       )
-      @jones = Contact.create(
+      @jones = create(:contact, 
         firstname: 'Tim',
         lastname: 'Jones',
         email: 'tjones@example.com'
       )
-      @johnson = Contact.create(
+      @johnson = create(:contact, 
         firstname: 'John',
         lastname: 'Johnson',
         email: 'jjohnson@example.com'
