@@ -62,14 +62,14 @@ describe ContactsController do
 
   describe 'GET #edit' do 
     it "assigns the requested contact to @contact" do
-      cotnact = create(:contact)
+      contact = create(:contact)
       get :edit, id: contact
       expect(assigns(:contact)).to eq contact
     end
 
     it "renders the :edit template" do
       contact = create(:contact)
-      get :edit id: contact
+      get :edit, id: contact
       expect(response). to render_template :edit
     end
   end
