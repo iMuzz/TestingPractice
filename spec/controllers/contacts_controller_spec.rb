@@ -107,9 +107,28 @@ describe ContactsController do
   end 
 
   describe 'PATCH #update' do
+    before :each do
+      @contact = create(:contact, firstname: 'Lawrence', lastname: 'Smith')
+    end
+
     context "with valid attributes" do
-      it "updates the contact in the database"
-      it "redirects to the contact"
+      it "locates the request @contact" do
+        patch :update, id: @contact, contact: attributes_for(:contact)
+        expect(assigns(:contact)).to eq(@contact)
+      end
+
+      it "changes @contact's attributes" do
+        patch :update, id: @contact,
+        contact: attributes_for(:contact, firstname: 'Larry', lastname: 'Smith')
+        @contact.reload
+        expect(@contact.firstname).to eq('Larry')
+        expect(@contact.lastname).to eq('Smith')
+      end
+
+      it "redirects to the updated contact" do
+        patch :update, id: @contact, contact: attributes_for(:contact)
+        expect(response).to redirect_to @contact
+      end 
     end
 
     context "with invalid attributes" do
