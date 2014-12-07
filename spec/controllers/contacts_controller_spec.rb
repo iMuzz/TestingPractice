@@ -171,18 +171,16 @@ describe ContactsController do
     end
 
     describe 'DELETE #destroy' do
-      before :each do
-        @contact = create(:contact)
-      end
-
       it "deletes the contact" do
+        contact
         expect{
-          delete :destroy, id: @contact
+          delete :destroy, id: contact
         }.to change(Contact,:count).by(-1)
       end
 
       it "redirects to contacts#index" do
-        delete :destroy, id: @contact
+        contact
+        delete :destroy, id: contact
         expect(response).to redirect_to contacts_url
       end
     end
