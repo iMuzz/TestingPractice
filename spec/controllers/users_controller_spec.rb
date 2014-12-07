@@ -20,7 +20,7 @@ describe UsersController do
       end
     end
 
-    it 'GET #new denies acces' do
+    it 'GET #new denies access' do
       get :new
       expect(response).to redirect_to root_url
     end
