@@ -2,5 +2,5 @@
 /tmp/*
 db/test.sqlite3
 log/test.log
-log*
+/log*
 db/development.sqlite3
