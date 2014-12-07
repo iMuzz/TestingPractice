@@ -1,7 +1,6 @@
 .DS_Store
+/tmp/*
 db/test.sqlite3
+log/test.log
+/log*
 db/development.sqlite3
-
-# Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
