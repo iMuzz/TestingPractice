@@ -46,6 +46,7 @@ group :development,:test do
  gem "pry"
  gem "guard-rspec"
  gem "spring-commands-rspec", '~> 1.0.2'
+ gem "email_spec"
 end
 
 group :test do
