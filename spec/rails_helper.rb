@@ -30,6 +30,8 @@ RSpec.configure do |config|
   config.include LoginMacros
   config.use_transactional_fixtures = false
 
+  config.filter_run focus: true
+  
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end

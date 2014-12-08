@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "News releases" do
+feature "News releases", focus: true do
   context "as a user" do 
     scenario "adds a new user release" do
       user = create(:user)
